@@ -1,23 +1,31 @@
-// === NAV (mobile menu toggle) ===
-// Desktop: link nav tampil horizontal seperti biasa, tombol ini disembunyikan lewat CSS.
-// Mobile: tombol ini membuka menu full-screen (lihat style.css bagian @media max-width:768px).
+// === NAV ===
+// Desktop: highlight link aktif sesuai section yang sedang dilihat.
+// Mobile: tab bar bawah (4 menu utama) + tombol "More" membuka drawer berisi semua link.
 
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
+const drawer = document.getElementById('drawer');
+const drawerClose = document.getElementById('drawerClose');
 
-function closeMenu() {
-  navLinks.classList.remove('open');
-  menuBtn.classList.remove('is-open');
-  menuBtn.setAttribute('aria-expanded', 'false');
-}
+function openDrawer() { drawer.classList.add('open'); }
+function closeDrawer() { drawer.classList.remove('open'); }
 
-function toggleMenu() {
-  const isOpen = navLinks.classList.toggle('open');
-  menuBtn.classList.toggle('is-open', isOpen);
-  menuBtn.setAttribute('aria-expanded', String(isOpen));
-}
+document.getElementById('moreBtn')?.addEventListener('click', openDrawer);
+drawerClose?.addEventListener('click', closeDrawer);
+drawer?.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
+document.getElementById('drawerLinks')?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
-if (menuBtn && navLinks) {
-  menuBtn.addEventListener('click', toggleMenu);
-  navLinks.querySelectorAll('a.link').forEach((a) => a.addEventListener('click', closeMenu));
-}
+// highlight link yang sedang aktif (desktop nav + tab bar) sesuai section yang terlihat
+const sections = document.querySelectorAll('section[id]');
+const deskLinks = () => document.querySelectorAll('#deskLinks a');
+const tabLinks = () => document.querySelectorAll('#tabbar a');
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const id = entry.target.id;
+    [...deskLinks(), ...tabLinks()].forEach((a) => {
+      a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+    });
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+
+sections.forEach((s) => navObserver.observe(s));

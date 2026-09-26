@@ -2,6 +2,34 @@
 // Ganti isi array di file ini untuk update konten portofolio.
 // File render.js akan otomatis membaca data dari sini.
 
+const NAV_LINKS = [
+  {href:"#home", label:"Home"},
+  {href:"#about", label:"About"},
+  {href:"#gamedev", label:"Projects"},
+  {href:"#gaming", label:"Gaming"},
+  {href:"#skills", label:"Skills"},
+  {href:"#journey", label:"Journey"},
+  {href:"#achievements", label:"Achievements"},
+  {href:"#gallery", label:"Gallery"},
+  {href:"#devlog", label:"Devlog"},
+  {href:"#contact", label:"Contact"}
+];
+
+// 4 tab utama + tombol "More" yang buka drawer berisi NAV_LINKS lengkap
+const TAB_LINKS = [
+  {href:"#home", label:"Home", icon:"🏠"},
+  {href:"#about", label:"About", icon:"👤"},
+  {href:"#gamedev", label:"Projects", icon:"📁"},
+  {href:"#gaming", label:"Gaming", icon:"🎮"}
+];
+
+const LEVEL_MAP = {
+  Learning:{pct:25, color:"var(--cyan)"},
+  Familiar:{pct:50, color:"var(--muted)"},
+  Intermediate:{pct:75, color:"var(--amber)"},
+  Advanced:{pct:95, color:"var(--green)"}
+};
+
 const DATA_STATS = [
   {num:"50+", lbl:"Games Played"},
   {num:"5+", lbl:"Projects"},
