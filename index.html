@@ -6,65 +6,177 @@
 <title>Restu — From Gamer to Game Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- ===== ICON SPRITE ===== -->
+<!-- Semua ikon di situs ini adalah SVG line-icon (bukan emoji), didefinisikan sekali di sini
+     lalu dipakai ulang lewat <use href="#i-nama"> di HTML maupun lewat JS (lihat js/render.js). -->
+<svg style="display:none" aria-hidden="true">
+<defs>
+<symbol id="i-gamepad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="7" width="20" height="10" rx="4"/><line x1="7" y1="12" x2="11" y2="12"/><line x1="9" y1="10" x2="9" y2="14"/>
+  <circle cx="15" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="17.5" cy="13" r="1" fill="currentColor" stroke="none"/>
+</symbol>
+<symbol id="i-joystick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="5" r="2.2"/><line x1="12" y1="7.2" x2="12" y2="15"/><ellipse cx="12" cy="18" rx="7" ry="3"/>
+</symbol>
+<symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="9 8 4 12 9 16"/><polyline points="15 8 20 12 15 16"/>
+</symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+</symbol>
+<symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h2a2 2 0 0 1 0 4h-1"/><path d="M7 5H5a2 2 0 0 0 0 4h1"/>
+</symbol>
+<symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
+</symbol>
+<symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
+</symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/>
+</symbol>
+<symbol id="i-github" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+  <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.84.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
+</symbol>
+<symbol id="i-discord" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+</symbol>
+<symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+</symbol>
+<symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none"/>
+</symbol>
+<symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>
+</symbol>
+<symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+</symbol>
+<symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2s5 5.5 5 10a5 5 0 0 1-10 0c0-1 .3-2 1-3 .3 1 1 1.5 1.5 1.5C9 8 10 5 12 2z"/>
+</symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+</symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="6 9 12 15 18 9"/>
+</symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="9 6 15 12 9 18"/>
+</symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+</symbol>
+<symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"/>
+</symbol>
+<symbol id="i-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 13V6a2 2 0 1 1 4 0"/><path d="M12 12V4a2 2 0 1 1 4 0v8"/><path d="M16 12V6a2 2 0 1 1 4 0v7a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.4L4 12"/>
+</symbol>
+<symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/>
+</symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/>
+</symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="20 6 9 17 4 12"/>
+</symbol>
+<symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>
+</symbol>
+<symbol id="i-pickaxe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 21l7-7"/><path d="M14 3c3 1 5 3 6 6-3 0-6 1-8 3l-3-3c2-2 3-5 5-6z"/>
+</symbol>
+<symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
+</symbol>
+<symbol id="i-swords" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="5" y1="19" x2="19" y2="5"/><line x1="19" y1="19" x2="5" y2="5"/><line x1="3" y1="21" x2="6" y2="18"/><line x1="21" y1="21" x2="18" y2="18"/>
+</symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+  <polygon points="12 2 15 9 22 9.5 16.5 14 18 21 12 17 6 21 7.5 14 2 9.5 9 9"/>
+</symbol>
+<symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 17l1.5-5.5A3 3 0 0 1 7.4 9h9.2a3 3 0 0 1 2.9 2.5L21 17"/><path d="M5 17h14"/><circle cx="7" cy="17.5" r="1.6" fill="currentColor" stroke="none"/><circle cx="17" cy="17.5" r="1.6" fill="currentColor" stroke="none"/>
+</symbol>
+<symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5"/><path d="M12 12v10"/>
+</symbol>
+</defs>
+</svg>
+
 <nav>
   <div class="bar">
-    <span class="brand">🎮 RESTU.DEV</span>
+    <span class="brand"><svg class="icon"><use href="#i-gamepad"/></svg> RESTU.DEV</span>
     <div class="desk-links" id="deskLinks"></div>
   </div>
 </nav>
 
 <section class="hero" id="home"><div class="wrap">
-  <div class="hero-scene">
+  <div class="hero-scene scenic scenic-tall">
+    <div class="moon"></div>
+    <div class="dream-text">Better Games<br>Bigger Dreams</div>
     <div class="hero-copy">
-      <h1>Hi, I'm Restu 👋</h1>
+      <h1>Hi, I'm Restu <svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg></h1>
       <div class="tagline">GAMER · GAME DEVELOPER · IT LEARNER</div>
       <p>I love playing games, creating games, and exploring technology. This is my journey from a gamer to a game developer.</p>
+      <div class="cta-row">
+        <a href="#gamedev" class="btn btn-primary">View My Projects</a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
     </div>
-    <svg class="skyline" viewBox="0 0 800 90" preserveAspectRatio="none"><path d="M0 90 L0 60 40 60 40 40 90 40 90 55 150 55 150 30 210 30 210 50 270 50 270 20 330 20 330 45 400 45 400 15 470 15 470 40 540 40 540 25 610 25 610 50 670 50 670 35 730 35 730 55 800 55 800 90 Z" fill="#0b0e1a" opacity=".7"/></svg>
-  </div>
-  <div class="cta-row">
-    <a href="#gamedev" class="btn btn-primary">View My Projects</a>
-    <a href="#contact" class="btn btn-ghost">Contact Me</a>
+    <svg class="mountains" viewBox="0 0 800 140" preserveAspectRatio="none">
+      <path d="M0 140 L0 90 90 40 170 90 240 55 330 100 400 60 480 100 560 50 650 95 720 65 800 100 800 140 Z" fill="#141a34"/>
+      <path d="M0 140 L0 110 60 85 130 115 210 80 300 120 380 90 460 125 540 85 620 118 700 90 800 120 800 140 Z" fill="#0b0e1a"/>
+    </svg>
+    <div class="figure"></div>
+    <div class="scroll-cue"><svg class="icon"><use href="#i-chevron-down"/></svg><span>Scroll Down</span></div>
   </div>
 </div></section>
 
 <section id="about"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(91,91,240,.18);color:var(--primary2)">💠</span><h2>About Me</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(91,91,240,.18);color:var(--primary2)"><svg class="icon"><use href="#i-user"/></svg></span><h2>About Me</h2></div>
   <div class="about-grid">
     <div class="about-text">
       <p>Saya adalah seorang gamer yang sedang belajar menjadi game developer dan mendalami dunia IT. Saya tertarik pada programming, game development, dan berbagai teknologi yang dapat digunakan untuk membuat sesuatu yang interaktif.</p>
     </div>
-    <div class="avatar-card">Foto / avatar kamu di sini</div>
+    <div class="avatar-card"><div class="bust"><span class="hair"></span><span class="face"></span></div></div>
     <div class="stats" id="statsGrid"></div>
     <div class="quote-card">"Small steps every day, lead to big results."</div>
   </div>
 </div></section>
 
 <section id="gaming"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(255,182,72,.18);color:var(--amber)">🕹️</span><h2>My Gaming Journey</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(255,182,72,.18);color:var(--amber)"><svg class="icon"><use href="#i-joystick"/></svg></span><h2>My Gaming Journey</h2></div>
   <p class="sub">Games I play, the moments I enjoy, and the worlds I love.</p>
   <div class="grid" id="gamesGrid"></div>
 </div></section>
 
 <section id="gamedev"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(124,107,255,.18);color:var(--primary2)">🎮</span><h2>My Game Projects</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(124,107,255,.18);color:var(--primary2)"><svg class="icon"><use href="#i-gamepad"/></svg></span><h2>My Game Projects</h2></div>
   <p class="sub">Games I've built or am currently working on.</p>
   <div id="gamedevList"></div>
 </div></section>
 
 <section id="itprojects"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(62,198,255,.18);color:var(--cyan)">&lt;/&gt;</span><h2>IT / Programming Projects</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(62,198,255,.18);color:var(--cyan)"><svg class="icon"><use href="#i-code"/></svg></span><h2>IT / Programming Projects</h2></div>
   <p class="sub">Other projects I've made while learning IT.</p>
   <div id="itGrid"></div>
 </div></section>
 
 <section id="skills"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(56,217,138,.18);color:var(--green)">🛠️</span><h2>My Skills</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(56,217,138,.18);color:var(--green)"><svg class="icon"><use href="#i-wrench"/></svg></span><h2>My Skills</h2></div>
   <p class="sub">Technologies and tools I'm learning and using.</p>
   <div class="skill-cols" id="skillsWrap"></div>
   <div class="legend">
@@ -73,31 +185,48 @@
     <span><i class="dot" style="background:var(--amber)"></i>Intermediate</span>
     <span><i class="dot" style="background:var(--green)"></i>Advanced</span>
   </div>
+  <div class="scenic scenic-band">
+    <svg class="mountains" viewBox="0 0 800 90" preserveAspectRatio="none">
+      <path d="M0 90 L0 55 90 20 170 55 240 35 330 65 400 30 480 60 560 25 650 58 720 40 800 62 800 90 Z" fill="#141a34"/>
+      <path d="M0 90 L0 70 60 55 130 72 210 50 300 75 380 58 460 78 540 52 620 72 700 55 800 75 800 90 Z" fill="#0b0e1a"/>
+    </svg>
+    <div class="band-text">Keep Learning <svg class="icon"><use href="#i-flame"/></svg></div>
+  </div>
 </div></section>
 
 <section id="journey"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(255,95,162,.18);color:var(--pink)">📚</span><h2>My Learning Journey</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(255,95,162,.18);color:var(--pink)"><svg class="icon"><use href="#i-book"/></svg></span><h2>My Learning Journey</h2></div>
   <p class="sub">Track my progress and milestones.</p>
-  <div class="tl" id="tlWrap"></div>
+  <div class="journey-grid">
+    <div class="tl" id="tlWrap"></div>
+    <div class="scenic journey-card">
+      <div class="moon" style="width:26px;height:26px;top:10%;right:16%"></div>
+      <svg class="mountains" viewBox="0 0 400 110" preserveAspectRatio="none">
+        <path d="M0 110 L0 70 60 35 120 70 180 45 240 80 300 40 360 75 400 55 400 110 Z" fill="#141a34"/>
+      </svg>
+      <div class="figure" style="left:40%; bottom:20%"></div>
+      <p class="journey-quote">Not just learning to make games,<br>but to build the future I want.</p>
+    </div>
+  </div>
 </div></section>
 
 <section id="achievements"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(56,217,138,.18);color:var(--green)">🏆</span><h2>Achievements</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(56,217,138,.18);color:var(--green)"><svg class="icon"><use href="#i-trophy"/></svg></span><h2>Achievements</h2></div>
   <div class="ach-list" id="achWrap"></div>
 </div></section>
 
 <section id="gallery"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(91,91,240,.18);color:var(--primary2)">🖼️</span><h2>Gallery</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(91,91,240,.18);color:var(--primary2)"><svg class="icon"><use href="#i-image"/></svg></span><h2>Gallery</h2></div>
   <div class="gal" id="galWrap"></div>
 </div></section>
 
 <section id="devlog"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(62,198,255,.18);color:var(--cyan)">📝</span><h2>Devlog</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(62,198,255,.18);color:var(--cyan)"><svg class="icon"><use href="#i-edit"/></svg></span><h2>Devlog</h2></div>
   <div class="log" id="logWrap"></div>
 </div></section>
 
 <section id="contact"><div class="wrap reveal">
-  <div class="sec-head"><span class="badge-ico" style="background:rgba(91,91,240,.18);color:var(--primary2)">✉️</span><h2>Let's Connect</h2></div>
+  <div class="sec-head"><span class="badge-ico" style="background:rgba(91,91,240,.18);color:var(--primary2)"><svg class="icon"><use href="#i-mail"/></svg></span><h2>Let's Connect</h2></div>
   <p class="sub">Feel free to reach out! I'm always open to new opportunities, collaborations, or just a friendly chat.</p>
   <div class="contact-wrap">
     <div class="contact-list" id="contactWrap"></div>
@@ -108,16 +237,23 @@
       <button class="btn btn-primary" type="submit">Send Message</button>
     </form>
   </div>
+  <div class="social-row" id="socialRow"></div>
+  <div class="scenic scenic-band">
+    <svg class="mountains" viewBox="0 0 800 90" preserveAspectRatio="none">
+      <path d="M0 90 L0 55 90 20 170 55 240 35 330 65 400 30 480 60 560 25 650 58 720 40 800 62 800 90 Z" fill="#141a34"/>
+      <path d="M0 90 L0 70 60 55 130 72 210 50 300 75 380 58 460 78 540 52 620 72 700 55 800 75 800 90 Z" fill="#0b0e1a"/>
+    </svg>
+  </div>
 </div></section>
 
-<footer>♥ Thanks for visiting my portfolio! — RESTU.DEV</footer>
+<footer><svg class="icon"><use href="#i-heart"/></svg> Thanks for visiting my portfolio! — RESTU.DEV</footer>
 
 <!-- mobile: bottom tab bar -->
 <nav class="tabbar" id="tabbar"></nav>
 <!-- mobile: drawer "More" -->
 <div class="drawer" id="drawer">
   <div class="drawer-panel">
-    <button class="drawer-close" id="drawerClose" aria-label="Tutup menu">✕</button>
+    <button class="drawer-close" id="drawerClose" aria-label="Tutup menu"><svg class="icon"><use href="#i-close"/></svg></button>
     <div id="drawerLinks"></div>
     <div class="drawer-tagline">Play · Code · Create</div>
   </div>

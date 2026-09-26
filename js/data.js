@@ -15,12 +15,20 @@ const NAV_LINKS = [
   {href:"#contact", label:"Contact"}
 ];
 
-// 4 tab utama + tombol "More" yang buka drawer berisi NAV_LINKS lengkap
+// 4 tab utama + tombol "Menu" yang buka drawer berisi NAV_LINKS lengkap
+// "icon" merujuk ke id simbol SVG di sprite index.html (lihat <symbol id="i-...">)
 const TAB_LINKS = [
-  {href:"#home", label:"Home", icon:"🏠"},
-  {href:"#about", label:"About", icon:"👤"},
-  {href:"#gamedev", label:"Projects", icon:"📁"},
-  {href:"#gaming", label:"Gaming", icon:"🎮"}
+  {href:"#home", label:"Home", icon:"home"},
+  {href:"#gamedev", label:"Projects", icon:"folder"},
+  {href:"#gaming", label:"Gaming", icon:"gamepad"},
+  {href:"#skills", label:"Skills", icon:"wrench"}
+];
+
+const SOCIAL_LINKS = [
+  {icon:"github", url:"#", label:"GitHub"},
+  {icon:"discord", url:"#", label:"Discord"},
+  {icon:"camera", url:"#", label:"Instagram"},
+  {icon:"play", url:"#", label:"YouTube"}
 ];
 
 const LEVEL_MAP = {
@@ -38,12 +46,12 @@ const DATA_STATS = [
 ];
 
 const DATA_GAMES = [
-  {name:"Minecraft", tags:"Survival · Building", fav:true},
-  {name:"Valorant", tags:"FPS · Tactical", fav:true},
-  {name:"Mobile Legends", tags:"MOBA · Ranked"},
-  {name:"Genshin Impact", tags:"Open World · RPG"},
-  {name:"GTA V", tags:"Open World · Story"},
-  {name:"Roblox", tags:"Sandbox · Multiplayer"}
+  {name:"Minecraft", tags:"Survival · Building", fav:true, icon:"pickaxe", color:"#4c9a5b"},
+  {name:"Valorant", tags:"FPS · Tactical", fav:true, icon:"target", color:"#ff4655"},
+  {name:"Mobile Legends", tags:"MOBA · Ranked", icon:"swords", color:"#3ec6ff"},
+  {name:"Genshin Impact", tags:"Open World · RPG", icon:"star", color:"#7c6bff"},
+  {name:"GTA V", tags:"Open World · Story", icon:"car", color:"#ffb648"},
+  {name:"Roblox", tags:"Sandbox · Multiplayer", icon:"cube", color:"#38d98a"}
 ];
 
 const DATA_GAMEDEV = [
@@ -52,11 +60,10 @@ const DATA_GAMEDEV = [
 ];
 
 const DATA_ITPROJECTS = [
-  {name:"Personal Website", tags:"HTML · CSS · JS", url:"#"},
-  {name:"To-Do App", tags:"JavaScript", url:"#"},
-  {name:"Simple 2D Game", tags:"Unity · C#", url:"#"},
-  {name:"Discord Bot", tags:"Python", url:"#"},
-  {name:"Simple Database App", tags:"MySQL", url:"#"}
+  {name:"Personal Website", desc:"My portfolio website using HTML, CSS, JavaScript.", tags:["HTML","CSS","JavaScript"], url:"#", icon:"globe", color:"var(--cyan)"},
+  {name:"To-Do App", desc:"Simple task manager app with JavaScript.", tags:["JavaScript","LocalStorage"], url:"#", icon:"check", color:"var(--green)"},
+  {name:"Discord Bot", desc:"A basic Discord bot using Python.", tags:["Python","Discord API"], url:"#", icon:"discord", color:"var(--primary2)"},
+  {name:"Simple Database App", desc:"User data management app using MySQL.", tags:["MySQL","PHP"], url:"#", icon:"database", color:"var(--amber)"}
 ];
 
 const DATA_SKILLS = {
@@ -90,6 +97,6 @@ const DATA_DEVLOG = [
 
 const DATA_CONTACT = [
   {label:"Email", val:"example@gmail.com", url:"mailto:example@gmail.com", icon:"mail"},
-  {label:"GitHub", val:"@username", url:"#", icon:"git"},
-  {label:"Discord", val:"@username", url:"#", icon:"disc"}
+  {label:"GitHub", val:"@username", url:"#", icon:"github"},
+  {label:"Discord", val:"@username", url:"#", icon:"discord"}
 ];
