@@ -11,19 +11,26 @@
 </head>
 <body>
 
-<nav><div class="row">
-  <span class="brand">RESTU.DEV</span>
-  <a class="link" href="#about">About</a>
-  <a class="link" href="#gaming">Gaming</a>
-  <a class="link" href="#gamedev">Game Dev</a>
-  <a class="link" href="#itprojects">IT Projects</a>
-  <a class="link" href="#skills">Skills</a>
-  <a class="link" href="#journey">Journey</a>
-  <a class="link" href="#achievements">Achievements</a>
-  <a class="link" href="#gallery">Gallery</a>
-  <a class="link" href="#devlog">Devlog</a>
-  <a class="link" href="#contact">Contact</a>
-</div></nav>
+<nav>
+  <div class="bar">
+    <span class="brand">RESTU.DEV</span>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="row" id="navLinks">
+    <a class="link" href="#about">About</a>
+    <a class="link" href="#gaming">Gaming</a>
+    <a class="link" href="#gamedev">Game Dev</a>
+    <a class="link" href="#itprojects">IT Projects</a>
+    <a class="link" href="#skills">Skills</a>
+    <a class="link" href="#journey">Journey</a>
+    <a class="link" href="#achievements">Achievements</a>
+    <a class="link" href="#gallery">Gallery</a>
+    <a class="link" href="#devlog">Devlog</a>
+    <a class="link" href="#contact">Contact</a>
+  </div>
+</nav>
 
 <section class="hero"><div class="wrap">
   <div class="profile-card">
@@ -116,6 +123,7 @@
 <script src="js/data.js" defer></script>
 <script src="js/backend.js" defer></script>
 <script src="js/render.js" defer></script>
+<script src="js/nav.js" defer></script>
 <script src="js/animations.js" defer></script>
 </body>
 </html>
