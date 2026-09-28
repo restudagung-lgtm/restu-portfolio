@@ -14,37 +14,43 @@ Website portofolio pribadi bertema *"From Gamer to Game Developer"*. Dibangun de
 
 ## Pratinjau Tampilan
 
-<img src="https://img.shields.io/badge/Perlu%20Screenshot-d32f2f?style=flat-square" alt="Perlu Screenshot">
+**Hero (desktop)**
 
-Saya belum menyertakan gambar pratinjau (screenshot) di sini karena saya tidak boleh menebak atau memasukkan gambar hasil asumsi sendiri.
+![Hero](images/preview-hero.jpg)
 
-Di dalam file yang diunggah, ada dua kumpulan gambar terpisah (`rencana.zip` dan `rencana_tampilan_web.zip`) yang tampak seperti gambar *rencana desain* untuk situs ini — bukan hasil kode `restu-portfolio` yang sebenarnya. Saya **tidak tahu** apakah gambar-gambar itu memang dimaksudkan untuk dipakai sebagai pratinjau di README ini atau hanya referensi desain saat proses pembuatan.
+**About Me** — bio, statistik, dan avatar
 
-Kalau kamu mau README ini punya bagian pratinjau dengan gambar, tolong konfirmasi salah satu:
-1. Pakai gambar dari `rencana.zip` / `rencana_tampilan_web.zip` (sebutkan file mana), atau
-2. Ambil screenshot langsung dari `index.html` yang sudah jadi (jalankan di browser, lalu kirim gambarnya ke saya atau simpan sendiri sebagai mis. `preview.png` di folder proyek).
+![About](images/preview-about.jpg)
 
-Setelah gambarnya ada, tinggal tambahkan baris berikut di bagian ini:
-```markdown
-![Preview](preview.png)
-```
+**Gaming Journey** — kartu game bisa diklik menuju halaman game
+
+![Gaming](images/preview-gaming.jpg)
+
+**Tampilan mobile**
+
+<img src="images/preview-mobile.jpg" alt="Tampilan mobile" width="260">
+
+> Semua screenshot diambil langsung dari `index.html` yang sudah jadi.
 
 ---
 
 ## Fitur
 
-- **Hero Section** — perkenalan singkat dengan ilustrasi bertema malam (gunung, bulan, karakter duduk)
-- **About Me** — deskripsi diri, kartu avatar, dan statistik ringkas
-- **Gaming Journey** — daftar game yang dimainkan
-- **Game Projects** — daftar proyek game yang sedang/sudah dibuat (engine, bahasa, status, tautan demo & repo)
-- **IT / Programming Projects** — daftar proyek IT non-game
+- **Hero Section** — perkenalan singkat dengan latar malam yang beranimasi: bintang berkelip, awan tipis melayang, bulan dengan cahaya berdenyut, serta gunung dan karakter yang bergerak pelan
+- **Background Parallax** — gambar mawar ungu sebagai latar seluruh halaman; ikut bergerak saat di-*scroll* (lebih pelan dari konten sehingga terasa ada kedalaman)
+- **Layout Full Desktop** — konten melebar memenuhi layar (hingga 1440px, dan 1680px di layar sangat lebar), bukan lagi kolom sempit di tengah
+- **About Me** — bio, statistik ringkas di bawah bio (di samping avatar), lalu kutipan di baris paling bawah
+- **Gaming Journey** — kartu game dengan gambar cover dan badge *Favorite*; **klik kartu untuk membuka halaman game** di tab baru
+- **Game Projects** — daftar proyek game dengan thumbnail, status (*In Development* / *Completed*), tombol *Play Demo* dan *GitHub*
+- **IT / Programming Projects** — daftar proyek IT non-game; setiap kartu adalah tautan
 - **Skills** — daftar skill dengan indikator level (Learning / Familiar / Intermediate / Advanced)
 - **Learning Journey** — linimasa (timeline) proses belajar
 - **Achievements** — daftar pencapaian
-- **Gallery** — grid galeri gambar (placeholder, belum ada gambar asli — lihat catatan di bawah)
+- **Gallery** — grid foto; **klik foto untuk memperbesar** (lightbox), tutup dengan tombol X, klik area gelap, atau tombol `Esc`
 - **Devlog** — daftar catatan pengembangan
 - **Contact** — daftar kontak + formulir pesan (belum terhubung ke backend apa pun)
-- **Navigasi responsif** — menu atas untuk desktop, tab bar + drawer "Menu" untuk mobile
+- **Navigasi responsif** — menu atas untuk desktop, tab bar bawah + drawer "Menu" untuk mobile
+- **Ramah aksesibilitas** — animasi otomatis dimatikan bagi pengguna yang mengaktifkan *reduce motion* di perangkatnya
 
 ---
 
@@ -52,16 +58,31 @@ Setelah gambarnya ada, tinggal tambahkan baris berikut di bagian ini:
 
 ```
 restu-portfolio/
-├── index.html          # Struktur halaman (semua section)
+├── index.html          # Struktur halaman (semua section + lightbox galeri)
+├── README.md
 ├── css/
-│   └── style.css       # Semua styling
+│   └── style.css       # Semua styling (termasuk animasi hero & layout desktop)
+├── images/             # Semua gambar (avatar, cover game, thumbnail proyek, galeri, ikon sosial, background)
 └── js/
     ├── data.js         # Semua konten/data (edit di sini untuk update isi)
-    ├── backend.js       # Placeholder koneksi Firebase (belum aktif)
-    ├── render.js         # Mengubah data.js menjadi elemen HTML
-    ├── nav.js            # Logika navigasi (menu mobile, scroll-active, dst.)
-    └── animations.js     # Efek animasi saat scroll (reveal)
+    ├── backend.js      # Placeholder koneksi Firebase (belum aktif)
+    ├── render.js       # Mengubah data.js menjadi elemen HTML
+    ├── nav.js          # Navigasi (menu mobile, scroll-active) + lightbox galeri
+    ├── animations.js   # Efek animasi saat scroll (reveal)
+    └── parallax.js     # Gerak background saat di-scroll
 ```
+
+### Isi folder `images/`
+
+| File | Dipakai di |
+|---|---|
+| `avatar.jpg` | Foto profil di About Me |
+| `bg-roses.jpg` | Background seluruh halaman (parallax) |
+| `game-minecraft.jpg`, `game-valorant.jpg`, `game-mobilelegends.jpg`, `game-genshin.jpg`, `game-gtav.jpg`, `game-roblox.jpg` | Cover di Gaming Journey |
+| `project-zombie-survival.jpg`, `project-first-unity-game.jpg` | Thumbnail Game Projects |
+| `gallery-1.jpg` … `gallery-6.jpg` | Galeri |
+| `icon-github.jpg`, `icon-discord.jpg`, `icon-instagram.jpg`, `icon-youtube.jpg` | Ikon sosial & kontak |
+| `preview-*.jpg` | Screenshot untuk README ini saja (boleh dihapus jika tidak diperlukan) |
 
 ---
 
@@ -71,7 +92,9 @@ Proyek ini statis, tidak perlu instalasi atau server khusus.
 
 1. Unduh / clone folder `restu-portfolio`.
 2. Buka file `index.html` langsung di browser, **atau**
-3. Jalankan lewat *live server* lokal (mis. ekstensi "Live Server" di VS Code) agar path relatif (CSS/JS) selalu berjalan konsisten.
+3. Jalankan lewat *live server* lokal (mis. ekstensi "Live Server" di VS Code) agar path relatif (CSS/JS/gambar) selalu berjalan konsisten.
+
+Setelah mengubah file, refresh dengan **Ctrl + F5** agar cache browser dibersihkan.
 
 Untuk publikasi online, folder ini bisa langsung diunggah ke **GitHub Pages**, **Netlify**, atau **Vercel** tanpa proses build tambahan.
 
@@ -87,12 +110,43 @@ js/data.js
 
 Cukup ubah isi array/objek di file tersebut (contoh: `DATA_GAMES`, `DATA_GAMEDEV`, `DATA_ITPROJECTS`, `DATA_SKILLS`, dst.), lalu `render.js` akan otomatis menampilkannya ke halaman — tidak perlu menyentuh `index.html` maupun `render.js`.
 
-Catatan data yang masih berupa **placeholder** dan perlu diisi/diganti dengan data asli:
+### Cara menambahkan link
+
+| Yang ingin diberi link | Di `data.js` | Field yang diisi |
+|---|---|---|
+| Kartu game (Gaming Journey) | `DATA_GAMES` | `url` |
+| Gambar & tombol proyek game | `DATA_GAMEDEV` | `demo` (Play Demo + gambar) dan `repo` (GitHub) |
+| Proyek IT | `DATA_ITPROJECTS` | `url` |
+| Ikon sosial di footer | `SOCIAL_LINKS` | `url` |
+| Kontak | `DATA_CONTACT` | `url` |
+
+Contoh:
+
+```js
+{name:"Zombie Survival", ..., demo:"https://link-demo-kamu", repo:"https://github.com/username/zombie-survival"}
+```
+
+- Link yang diawali `https://` otomatis terbuka di **tab baru**.
+- Link yang masih `"#"` atau kosong **tidak melakukan apa-apa** saat diklik (tidak membuka tab kosong).
+
+### Cara mengganti gambar
+
+Simpan gambar baru di folder `images/` lalu ubah nama file di field `img` pada `data.js` (atau timpa file lama dengan nama yang sama). Untuk galeri, ubah `DATA_GALLERY` (field `img` dan `caption`).
+
+### Pengaturan lain
+
+- **Kecepatan gerak background:** ubah angka `F = 0.28` di `js/parallax.js` (`0` = diam, makin besar makin cepat).
+- **Gelap/terang background:** ubah nilai `rgba(11,8,18,…)` pada `.bg-parallax` di `css/style.css`.
+
+### Data yang masih placeholder
+
 - `DATA_CONTACT` — email, username GitHub, dan Discord masih contoh (`example@gmail.com`, `@username`)
-- `SOCIAL_LINKS` — semua tautan sosial media masih mengarah ke `#`
-- `DATA_GAMEDEV` (tombol *Play Demo* & *GitHub*) — tautan masih `#`
-- `DATA_ITPROJECTS` (tautan proyek) — masih `#`
-- `DATA_GALLERY` — hanya berisi label teks ("Game Screenshot", "Coding Session", dll.), **belum ada file gambar asli**. Kalau ingin galeri menampilkan gambar sungguhan, saya butuh kamu kirim file gambarnya terlebih dahulu — saya tidak akan mengarang atau mengambil gambar sembarangan.
+- `SOCIAL_LINKS` — semua tautan sosial media masih `#`
+- `DATA_GAMEDEV` — tautan *Play Demo* & *GitHub* masih `#`
+- `DATA_ITPROJECTS` — tautan proyek masih `#`
+- `DATA_GAMES` — `url` saat ini mengarah ke website resmi tiap game; ganti dengan link profilmu jika ingin
+- **Favicon** (ikon tab browser) belum dipasang
+- Teks statistik, skill, journey, achievement, dan devlog masih contoh — sesuaikan dengan data aslimu
 
 ---
 
@@ -116,9 +170,17 @@ Font yang dipakai: **Space Grotesk**, **JetBrains Mono**, dan **Caveat** (dimuat
 
 ---
 
+## Catatan Hak Cipta Gambar
+
+Cover game (Minecraft, Valorant, Mobile Legends, Genshin Impact, GTA V, Roblox) dan logo sosial media adalah **milik masing-masing pemegang merek**. Gambar-gambar ini dipakai hanya sebagai ilustrasi di portofolio pribadi. Pastikan kamu memahami ketentuan penggunaannya sebelum mempublikasikan situs ini secara luas, dan ganti dengan screenshot milikmu sendiri jika diperlukan.
+
+Gambar background mawar dan foto galeri juga sebaiknya dipastikan sumber & hak pakainya oleh pemilik proyek.
+
+---
+
 ## Lisensi
 
-Belum ada file lisensi disertakan. Kalau proyek ini ingin dibagikan secara publik dengan lisensi tertentu (mis. MIT), beri tahu saya lisensinya dan saya akan buatkan file `LICENSE`-nya.
+Belum ada file lisensi disertakan. Kalau proyek ini ingin dibagikan secara publik dengan lisensi tertentu (mis. MIT), tambahkan file `LICENSE` sesuai pilihanmu.
 
 ---
 
