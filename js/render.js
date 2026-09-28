@@ -1,3 +1,9 @@
+// Helper link: kalau url masih '#'/kosong -> klik tidak melakukan apa-apa (tidak buka tab kosong).
+// Kalau sudah diisi http(s)://... -> otomatis buka di tab baru.
+const L = (u) => /^https?:\/\//i.test(u || '') ? `href="${u}" target="_blank" rel="noopener"`
+  : /^mailto:/i.test(u || '') ? `href="${u}"`
+  : `href="#" onclick="return false" title="Link belum diisi"`;
+
 // === FRONTEND / RENDER ===
 // Mengubah data dari data.js menjadi elemen HTML di halaman.
 
@@ -19,7 +25,7 @@ document.getElementById('tabbar').innerHTML =
 
 // --- Social row (footer contact) ---
 document.getElementById('socialRow').innerHTML = SOCIAL_LINKS.map(s =>
-  `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.label}">${s.img ? `<img src="${s.img}" alt="${s.label}">` : icon(s.icon)}</a>`
+  `<a ${L(s.url)} aria-label="${s.label}">${s.img ? `<img src="${s.img}" alt="${s.label}">` : icon(s.icon)}</a>`
 ).join('');
 
 // --- Drawer (semua link + tagline) ---
@@ -34,7 +40,7 @@ document.getElementById('statsGrid').innerHTML = DATA_STATS.map(s => `
 
 // --- Games ---
 document.getElementById('gamesGrid').innerHTML = DATA_GAMES.map(g => `
-  <a class="card" href="${g.url || '#'}" target="_blank" rel="noopener">${g.fav ? '<span class="badge">FAVORITE</span>' : ''}
+  <a class="card" ${L(g.url || '#')}>${g.fav ? '<span class="badge">FAVORITE</span>' : ''}
     <div class="thumb" style="background:linear-gradient(135deg,${g.color}33,${g.color}0d); color:${g.color}">${g.img ? `<img src="${g.img}" alt="${g.name}">` : icon(g.icon)}</div>
     <div class="body"><h3>${g.name}</h3><p>${g.tags}</p></div>
   </a>`).join('');
@@ -42,21 +48,21 @@ document.getElementById('gamesGrid').innerHTML = DATA_GAMES.map(g => `
 // --- Game dev projects ---
 document.getElementById('gamedevList').innerHTML = DATA_GAMEDEV.map(p => `
   <div class="proj-card">
-    <a class="proj-thumb" href="${p.demo}" target="_blank" rel="noopener" aria-label="Buka ${p.name}">${p.img ? `<img src="${p.img}" alt="${p.name}">` : ''}</a>
+    <a class="proj-thumb" ${L(p.demo)} aria-label="Buka ${p.name}">${p.img ? `<img src="${p.img}" alt="${p.name}">` : ''}</a>
     <div>
       <div class="proj-head"><h3>${p.name}</h3><span class="status ${p.status === 'Completed' ? 'done' : 'dev'} mono">${p.status}</span></div>
       <p>${p.desc}</p>
       <div class="pill-row"><span class="pill">${p.engine}</span><span class="pill">${p.lang}</span></div>
       <div class="proj-links">
-        <a class="btn btn-primary" href="${p.demo}" target="_blank" rel="noopener">Play Demo</a>
-        <a class="btn btn-ghost" href="${p.repo}" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" ${L(p.demo)}>Play Demo</a>
+        <a class="btn btn-ghost" ${L(p.repo)}>GitHub</a>
       </div>
     </div>
   </div>`).join('');
 
 // --- IT projects ---
 document.getElementById('itGrid').innerHTML = DATA_ITPROJECTS.map(p => `
-  <a class="it-card" href="${p.url}" target="_blank" rel="noopener">
+  <a class="it-card" ${L(p.url)}>
     <span class="badge-ico" style="background:color-mix(in srgb, ${p.color} 20%, transparent); color:${p.color}">${p.img ? `<img src="${p.img}" alt="${p.name}">` : icon(p.icon)}</span>
     <div><h3>${p.name}</h3><p>${p.desc}</p><div class="pill-row">${p.tags.map(t => `<span class="pill">${t}</span>`).join('')}</div></div>
     <span class="go">View Project ${icon('chevron-right')}</span>
@@ -92,7 +98,7 @@ document.getElementById('logWrap').innerHTML = DATA_DEVLOG.map(l => `
 
 // --- Contact list ---
 document.getElementById('contactWrap').innerHTML = DATA_CONTACT.map(c => `
-  <a href="${c.url}" target="_blank" rel="noopener">
+  <a ${L(c.url)}>
     <span class="badge-ico">${c.img ? `<img src="${c.img}" alt="${c.label}">` : icon(c.icon)}</span>
     <div><h3 style="font-size:13.5px">${c.label}</h3><p style="font-size:12px">${c.val}</p></div>
   </a>`).join('');

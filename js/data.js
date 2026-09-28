@@ -46,12 +46,12 @@ const DATA_STATS = [
 ];
 
 const DATA_GAMES = [
-  {name:"Minecraft", tags:"Survival · Building", fav:true, icon:"pickaxe", color:"#4c9a5b", img:"images/game-minecraft.jpg", url:"https://www.minecraft.net/"},
+  {name:"Minecraft", tags:"Survival · Building", fav:true, icon:"pickaxe", color:"#4c9a5b", img:"images/game-minecraft.jpg", url:"https://www.minecraft.net/en-us/msaprofile"},
   {name:"Valorant", tags:"FPS · Tactical", fav:true, icon:"target", color:"#ff4655", img:"images/game-valorant.jpg", url:"https://playvalorant.com/"},
   {name:"Mobile Legends", tags:"MOBA · Ranked", icon:"swords", color:"#3ec6ff", img:"images/game-mobilelegends.jpg", url:"https://www.mobilelegends.com/"},
   {name:"Genshin Impact", tags:"Open World · RPG", icon:"star", color:"#7c6bff", img:"images/game-genshin.jpg", url:"https://genshin.hoyoverse.com/"},
   {name:"GTA V", tags:"Open World · Story", icon:"car", color:"#ffb648", img:"images/game-gtav.jpg", url:"https://www.rockstargames.com/gta-v"},
-  {name:"Roblox", tags:"Sandbox · Multiplayer", fav:true, icon:"cube", color:"#38d98a", img:"images/game-roblox.jpg", url:"https://www.roblox.com/"}
+  {name:"Roblox", tags:"Sandbox · Multiplayer", fav:true, icon:"cube", color:"#38d98a", img:"images/game-roblox.jpg", url:"https://www.roblox.com/users/8766906281/profile"}
 ];
 
 const DATA_GAMEDEV = [
@@ -73,10 +73,14 @@ const DATA_SKILLS = {
 };
 
 const DATA_JOURNEY = [
-  {d:"Sep 2026", t:"Membuat game 2D pertama"},
-  {d:"Oct 2026", t:"Belajar JavaScript"},
-  {d:"Nov 2026", t:"Belajar Git & GitHub"},
-  {d:"Dec 2026", t:"Membuat game dengan sistem inventory"}
+  {d:"Aug 2025", t:"Membuat game roblox pertama"},
+  {d:"Oct 2025", t:"Jual Game Roblox pertama"},
+  {d:"Nov 2025", t:"Belajar Git & GitHub"},
+  {d:"Dec 2025", t:"Aktif di komunitas game dev"},
+  {d:"Jan 2026", t:"Belajar Unity & C#"},
+  {d:"Feb 2026", t:"Membuat game Unity pertama"},
+  {d:"Mar 2026", t:"Ikut Game Jam pertama"},
+  {d:"Apr 2026", t:"Membuat website portofolio"}
 ];
 
 const DATA_ACHIEVEMENTS = [
@@ -88,11 +92,11 @@ const DATA_ACHIEVEMENTS = [
 
 const DATA_GALLERY = [
   {img:"images/gallery-1.jpg", caption:"Game Screenshot"},
-  {img:"images/gallery-2.jpg", caption:"Coding Session"},
-  {img:"images/gallery-3.jpg", caption:"Character Setup"},
-  {img:"images/gallery-4.jpg", caption:"Game UI Design"},
-  {img:"images/gallery-5.jpg", caption:"Wireframe"},
-  {img:"images/gallery-6.jpg", caption:"Dev Setup"}
+  {img:"images/gallery-2.jpg", caption:"Game Screenshot"},
+  {img:"images/gallery-3.jpg", caption:"Game Screenshot"},
+  {img:"images/gallery-4.jpg", caption:"Game Screenshot"},
+  {img:"images/gallery-5.jpg", caption:"Game Screenshot"},
+  {img:"images/gallery-6.jpg", caption:"Game Screenshot"}
 ];
 
 const DATA_DEVLOG = [
@@ -103,7 +107,7 @@ const DATA_DEVLOG = [
 ];
 
 const DATA_CONTACT = [
-  {label:"Email", val:"example@gmail.com", url:"mailto:example@gmail.com", icon:"mail"},
-  {label:"GitHub", val:"@username", url:"#", icon:"github", img:"images/icon-github.jpg"},
-  {label:"Discord", val:"@username", url:"#", icon:"discord", img:"images/icon-discord.jpg"}
+  {label:"Email", val:"restudagung@gmail.com", url:"mailto:restudagung@gmail.com", icon:"mail"},
+  {label:"GitHub", val:"@restudagung-lgtm", url:"#", icon:"github", img:"images/icon-github.jpg"},
+  {label:"Discord", val:"@m__nd", url:"#", icon:"discord", img:"images/icon-discord.jpg"}
 ];
