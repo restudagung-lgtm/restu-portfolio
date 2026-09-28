@@ -44,7 +44,7 @@ Website portofolio pribadi bertema *"From Gamer to Game Developer"*. Dibangun de
 - **Game Projects** — daftar proyek game dengan thumbnail, status (*In Development* / *Completed*), tombol *Play Demo* dan *GitHub*
 - **IT / Programming Projects** — daftar proyek IT non-game; setiap kartu adalah tautan
 - **Skills** — daftar skill dengan indikator level (Learning / Familiar / Intermediate / Advanced)
-- **Learning Journey** — linimasa (timeline) proses belajar
+- **Learning Journey** — linimasa (timeline) proses belajar, dengan kartu **mini game pixel art** di sampingnya: karakter kecil berlari, melompati rintangan, dan mengambil koin secara otomatis (murni animasi, tanpa kontrol); obor berkedip dan debu melayang. Animasi berhenti sendiri saat kartu tidak terlihat
 - **Achievements** — daftar pencapaian
 - **Gallery** — grid foto; **klik foto untuk memperbesar** (lightbox), tutup dengan tombol X, klik area gelap, atau tombol `Esc`
 - **Devlog** — daftar catatan pengembangan
@@ -69,7 +69,8 @@ restu-portfolio/
     ├── render.js       # Mengubah data.js menjadi elemen HTML
     ├── nav.js          # Navigasi (menu mobile, scroll-active) + lightbox galeri
     ├── animations.js   # Efek animasi saat scroll (reveal)
-    └── parallax.js     # Gerak background saat di-scroll
+    ├── parallax.js     # Gerak background saat di-scroll
+    └── pixel-scene.js  # Animasi mini game di kartu Journey (canvas)
 ```
 
 ### Isi folder `images/`
@@ -80,6 +81,7 @@ restu-portfolio/
 | `bg-roses.jpg` | Background seluruh halaman (parallax) |
 | `game-minecraft.jpg`, `game-valorant.jpg`, `game-mobilelegends.jpg`, `game-genshin.jpg`, `game-gtav.jpg`, `game-roblox.jpg` | Cover di Gaming Journey |
 | `project-zombie-survival.jpg`, `project-first-unity-game.jpg` | Thumbnail Game Projects |
+| `pixel-scene.jpg` | Latar animasi mini game di kartu Journey |
 | `gallery-1.jpg` … `gallery-6.jpg` | Galeri |
 | `icon-github.jpg`, `icon-discord.jpg`, `icon-instagram.jpg`, `icon-youtube.jpg` | Ikon sosial & kontak |
 | `preview-*.jpg` | Screenshot untuk README ini saja (boleh dihapus jika tidak diperlukan) |
@@ -136,6 +138,7 @@ Simpan gambar baru di folder `images/` lalu ubah nama file di field `img` pada `
 ### Pengaturan lain
 
 - **Kecepatan gerak background:** ubah angka `F = 0.28` di `js/parallax.js` (`0` = diam, makin besar makin cepat).
+- **Mini game Journey:** kecepatan lari, tinggi lompatan, dan jumlah koin diatur di bagian atas `js/pixel-scene.js` (`SPEED`, `JUMP_H`) dan fungsi `spawnLevel()`.
 - **Gelap/terang background:** ubah nilai `rgba(11,8,18,…)` pada `.bg-parallax` di `css/style.css`.
 
 ### Data yang masih placeholder
@@ -174,7 +177,7 @@ Font yang dipakai: **Space Grotesk**, **JetBrains Mono**, dan **Caveat** (dimuat
 
 Cover game (Minecraft, Valorant, Mobile Legends, Genshin Impact, GTA V, Roblox) dan logo sosial media adalah **milik masing-masing pemegang merek**. Gambar-gambar ini dipakai hanya sebagai ilustrasi di portofolio pribadi. Pastikan kamu memahami ketentuan penggunaannya sebelum mempublikasikan situs ini secara luas, dan ganti dengan screenshot milikmu sendiri jika diperlukan.
 
-Gambar background mawar dan foto galeri juga sebaiknya dipastikan sumber & hak pakainya oleh pemilik proyek.
+Gambar pixel art di kartu Journey, gambar background mawar, dan foto galeri juga sebaiknya dipastikan sumber & hak pakainya oleh pemilik proyek.
 
 ---
 
