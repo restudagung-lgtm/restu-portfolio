@@ -25,10 +25,10 @@ const TAB_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  {icon:"github", url:"#", label:"GitHub"},
-  {icon:"discord", url:"#", label:"Discord"},
-  {icon:"camera", url:"#", label:"Instagram"},
-  {icon:"play", url:"#", label:"YouTube"}
+  {icon:"github", img:"images/icon-github.jpg", url:"#", label:"GitHub"},
+  {icon:"discord", img:"images/icon-discord.jpg", url:"#", label:"Discord"},
+  {icon:"camera", img:"images/icon-instagram.jpg", url:"#", label:"Instagram"},
+  {icon:"play", img:"images/icon-youtube.jpg", url:"#", label:"YouTube"}
 ];
 
 const LEVEL_MAP = {
@@ -46,23 +46,23 @@ const DATA_STATS = [
 ];
 
 const DATA_GAMES = [
-  {name:"Minecraft", tags:"Survival · Building", fav:true, icon:"pickaxe", color:"#4c9a5b"},
-  {name:"Valorant", tags:"FPS · Tactical", fav:true, icon:"target", color:"#ff4655"},
-  {name:"Mobile Legends", tags:"MOBA · Ranked", icon:"swords", color:"#3ec6ff"},
-  {name:"Genshin Impact", tags:"Open World · RPG", icon:"star", color:"#7c6bff"},
-  {name:"GTA V", tags:"Open World · Story", icon:"car", color:"#ffb648"},
-  {name:"Roblox", tags:"Sandbox · Multiplayer", icon:"cube", color:"#38d98a"}
+  {name:"Minecraft", tags:"Survival · Building", fav:true, icon:"pickaxe", color:"#4c9a5b", img:"images/game-minecraft.jpg", url:"https://www.minecraft.net/"},
+  {name:"Valorant", tags:"FPS · Tactical", fav:true, icon:"target", color:"#ff4655", img:"images/game-valorant.jpg", url:"https://playvalorant.com/"},
+  {name:"Mobile Legends", tags:"MOBA · Ranked", icon:"swords", color:"#3ec6ff", img:"images/game-mobilelegends.jpg", url:"https://www.mobilelegends.com/"},
+  {name:"Genshin Impact", tags:"Open World · RPG", icon:"star", color:"#7c6bff", img:"images/game-genshin.jpg", url:"https://genshin.hoyoverse.com/"},
+  {name:"GTA V", tags:"Open World · Story", icon:"car", color:"#ffb648", img:"images/game-gtav.jpg", url:"https://www.rockstargames.com/gta-v"},
+  {name:"Roblox", tags:"Sandbox · Multiplayer", fav:true, icon:"cube", color:"#38d98a", img:"images/game-roblox.jpg", url:"https://www.roblox.com/"}
 ];
 
 const DATA_GAMEDEV = [
-  {name:"Zombie Survival", desc:"A small survival game dibuat sambil belajar Unity dan C#.", engine:"Unity", lang:"C#", status:"In Development", demo:"#", repo:"#"},
-  {name:"My First Unity Game", desc:"Proyek pertama untuk memahami dasar game loop dan physics 2D.", engine:"Unity", lang:"C#", status:"Completed", demo:"#", repo:"#"}
+  {name:"Zombie Survival", desc:"A small survival game dibuat sambil belajar Unity dan C#.", engine:"Unity", lang:"C#", status:"In Development", demo:"#", repo:"#", img:"images/project-zombie-survival.jpg"},
+  {name:"My First Unity Game", desc:"Proyek pertama untuk memahami dasar game loop dan physics 2D.", engine:"Unity", lang:"C#", status:"In Development", demo:"#", repo:"#", img:"images/project-first-unity-game.jpg"}
 ];
 
 const DATA_ITPROJECTS = [
   {name:"Personal Website", desc:"My portfolio website using HTML, CSS, JavaScript.", tags:["HTML","CSS","JavaScript"], url:"#", icon:"globe", color:"var(--cyan)"},
   {name:"To-Do App", desc:"Simple task manager app with JavaScript.", tags:["JavaScript","LocalStorage"], url:"#", icon:"check", color:"var(--green)"},
-  {name:"Discord Bot", desc:"A basic Discord bot using Python.", tags:["Python","Discord API"], url:"#", icon:"discord", color:"var(--primary2)"},
+  {name:"Discord Bot", desc:"A basic Discord bot using Python.", tags:["Python","Discord API"], url:"#", icon:"discord", color:"var(--primary2)", img:"images/icon-discord.jpg"},
   {name:"Simple Database App", desc:"User data management app using MySQL.", tags:["MySQL","PHP"], url:"#", icon:"database", color:"var(--amber)"}
 ];
 
@@ -86,7 +86,14 @@ const DATA_ACHIEVEMENTS = [
   {y:"2026", t:"Created First Website"}
 ];
 
-const DATA_GALLERY = ["Game Screenshot","Coding Session","Character Setup","Game UI Design","Wireframe","Dev Setup"];
+const DATA_GALLERY = [
+  {img:"images/gallery-1.jpg", caption:"Game Screenshot"},
+  {img:"images/gallery-2.jpg", caption:"Coding Session"},
+  {img:"images/gallery-3.jpg", caption:"Character Setup"},
+  {img:"images/gallery-4.jpg", caption:"Game UI Design"},
+  {img:"images/gallery-5.jpg", caption:"Wireframe"},
+  {img:"images/gallery-6.jpg", caption:"Dev Setup"}
+];
 
 const DATA_DEVLOG = [
   {t:"How I Made My First Enemy AI", d:"Sep 2026"},
@@ -97,6 +104,6 @@ const DATA_DEVLOG = [
 
 const DATA_CONTACT = [
   {label:"Email", val:"example@gmail.com", url:"mailto:example@gmail.com", icon:"mail"},
-  {label:"GitHub", val:"@username", url:"#", icon:"github"},
-  {label:"Discord", val:"@username", url:"#", icon:"discord"}
+  {label:"GitHub", val:"@username", url:"#", icon:"github", img:"images/icon-github.jpg"},
+  {label:"Discord", val:"@username", url:"#", icon:"discord", img:"images/icon-discord.jpg"}
 ];

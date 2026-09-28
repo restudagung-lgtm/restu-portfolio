@@ -29,3 +29,29 @@ const navObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '-40% 0px -50% 0px' });
 
 sections.forEach((s) => navObserver.observe(s));
+
+// ===== GALLERY LIGHTBOX =====
+// Klik thumbnail galeri -> tampil besar; tombol close / klik backdrop / tombol Esc -> kembali kecil.
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+
+function openLightbox(src, caption) {
+  lightboxImg.src = src;
+  lightboxImg.alt = caption || '';
+  lightboxCaption.textContent = caption || '';
+  lightbox.classList.add('open');
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightboxImg.src = '';
+}
+
+document.getElementById('galWrap')?.addEventListener('click', (e) => {
+  const tile = e.target.closest('.gal-tile');
+  if (!tile) return;
+  openLightbox(tile.dataset.full, tile.dataset.caption);
+});
+document.getElementById('lightboxClose')?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });

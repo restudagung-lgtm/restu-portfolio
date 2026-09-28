@@ -19,7 +19,7 @@ document.getElementById('tabbar').innerHTML =
 
 // --- Social row (footer contact) ---
 document.getElementById('socialRow').innerHTML = SOCIAL_LINKS.map(s =>
-  `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.label}">${icon(s.icon)}</a>`
+  `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.label}">${s.img ? `<img src="${s.img}" alt="${s.label}">` : icon(s.icon)}</a>`
 ).join('');
 
 // --- Drawer (semua link + tagline) ---
@@ -34,15 +34,15 @@ document.getElementById('statsGrid').innerHTML = DATA_STATS.map(s => `
 
 // --- Games ---
 document.getElementById('gamesGrid').innerHTML = DATA_GAMES.map(g => `
-  <div class="card">${g.fav ? '<span class="badge">FAVORITE</span>' : ''}
-    <div class="thumb" style="background:linear-gradient(135deg,${g.color}33,${g.color}0d); color:${g.color}">${icon(g.icon)}</div>
+  <a class="card" href="${g.url || '#'}" target="_blank" rel="noopener">${g.fav ? '<span class="badge">FAVORITE</span>' : ''}
+    <div class="thumb" style="background:linear-gradient(135deg,${g.color}33,${g.color}0d); color:${g.color}">${g.img ? `<img src="${g.img}" alt="${g.name}">` : icon(g.icon)}</div>
     <div class="body"><h3>${g.name}</h3><p>${g.tags}</p></div>
-  </div>`).join('');
+  </a>`).join('');
 
 // --- Game dev projects ---
 document.getElementById('gamedevList').innerHTML = DATA_GAMEDEV.map(p => `
   <div class="proj-card">
-    <div class="proj-thumb"></div>
+    <a class="proj-thumb" href="${p.demo}" target="_blank" rel="noopener" aria-label="Buka ${p.name}">${p.img ? `<img src="${p.img}" alt="${p.name}">` : ''}</a>
     <div>
       <div class="proj-head"><h3>${p.name}</h3><span class="status ${p.status === 'Completed' ? 'done' : 'dev'} mono">${p.status}</span></div>
       <p>${p.desc}</p>
@@ -57,7 +57,7 @@ document.getElementById('gamedevList').innerHTML = DATA_GAMEDEV.map(p => `
 // --- IT projects ---
 document.getElementById('itGrid').innerHTML = DATA_ITPROJECTS.map(p => `
   <a class="it-card" href="${p.url}" target="_blank" rel="noopener">
-    <span class="badge-ico" style="background:color-mix(in srgb, ${p.color} 20%, transparent); color:${p.color}">${icon(p.icon)}</span>
+    <span class="badge-ico" style="background:color-mix(in srgb, ${p.color} 20%, transparent); color:${p.color}">${p.img ? `<img src="${p.img}" alt="${p.name}">` : icon(p.icon)}</span>
     <div><h3>${p.name}</h3><p>${p.desc}</p><div class="pill-row">${p.tags.map(t => `<span class="pill">${t}</span>`).join('')}</div></div>
     <span class="go">View Project ${icon('chevron-right')}</span>
   </a>`).join('');
@@ -83,10 +83,8 @@ document.getElementById('achWrap').innerHTML = DATA_ACHIEVEMENTS.map(a => `
   <div class="ach"><span class="badge-ico">${icon('trophy')}</span><span>${a.t}</span><span class="yr">${a.y}</span></div>`).join('');
 
 // --- Gallery ---
-// Catatan: ini masih placeholder ikon + label teks, BELUM ada file foto asli.
-// Kalau ingin galeri menampilkan foto sungguhan, ganti isi div ini dengan <img src="...">.
 document.getElementById('galWrap').innerHTML = DATA_GALLERY.map(g => `
-  <div class="gal-tile">${icon('image')}<br>${g}</div>`).join('');
+  <button type="button" class="gal-tile" data-full="${g.img}" data-caption="${g.caption}">${g.img ? `<img src="${g.img}" alt="${g.caption}"><span class="gal-cap">${g.caption}</span>` : `${icon('image')}<br>${g.caption || g}`}</button>`).join('');
 
 // --- Devlog ---
 document.getElementById('logWrap').innerHTML = DATA_DEVLOG.map(l => `
@@ -95,6 +93,6 @@ document.getElementById('logWrap').innerHTML = DATA_DEVLOG.map(l => `
 // --- Contact list ---
 document.getElementById('contactWrap').innerHTML = DATA_CONTACT.map(c => `
   <a href="${c.url}" target="_blank" rel="noopener">
-    <span class="badge-ico">${icon(c.icon)}</span>
+    <span class="badge-ico">${c.img ? `<img src="${c.img}" alt="${c.label}">` : icon(c.icon)}</span>
     <div><h3 style="font-size:13.5px">${c.label}</h3><p style="font-size:12px">${c.val}</p></div>
   </a>`).join('');
