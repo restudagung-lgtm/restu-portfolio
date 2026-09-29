@@ -81,7 +81,7 @@ restu-portfolio/
 | `bg-roses.jpg` | Background seluruh halaman (parallax) |
 | `hero-bg.jpg` | Foto latar bergerak (Ken Burns) di Hero |
 | `game-minecraft.jpg`, `game-valorant.jpg`, `game-mobilelegends.jpg`, `game-genshin.jpg`, `game-gtav.jpg`, `game-roblox.jpg` | Cover di Gaming Journey |
-| `project-zombie-survival.jpg`, `project-first-unity-game.jpg` | Thumbnail Game Projects |
+| `project-sunset-island.jpg`, `project-shiesty-club.jpg` | Thumbnail Game Projects |
 | `pixel-scene.jpg` | Latar animasi mini game di kartu Journey |
 | `gallery-1.jpg` … `gallery-6.jpg` | Galeri |
 | `icon-github.jpg`, `icon-discord.jpg`, `icon-instagram.jpg`, `icon-youtube.jpg` | Ikon sosial & kontak |
@@ -126,7 +126,7 @@ Cukup ubah isi array/objek di file tersebut (contoh: `DATA_GAMES`, `DATA_GAMEDEV
 Contoh:
 
 ```js
-{name:"Zombie Survival", ..., demo:"https://link-demo-kamu", repo:"https://github.com/username/zombie-survival"}
+{name:"Sunset Island", ..., demo:"https://www.roblox.com/share?code=...", repo:"https://github.com/username/sunset-island"}
 ```
 
 - Link yang diawali `https://` otomatis terbuka di **tab baru**.
@@ -147,7 +147,7 @@ Simpan gambar baru di folder `images/` lalu ubah nama file di field `img` pada `
 
 - `DATA_CONTACT` — email, username GitHub, dan Discord masih contoh (`example@gmail.com`, `@username`)
 - `SOCIAL_LINKS` — semua tautan sosial media masih `#`
-- `DATA_GAMEDEV` — tautan *Play Demo* & *GitHub* masih `#`
+- `DATA_GAMEDEV` — tautan *Play Demo* Sunset Island & Shiesty Club sudah mengarah ke Roblox; tombol *GitHub* masih `#` (isi kalau ada repo-nya)
 - `DATA_ITPROJECTS` — tautan proyek masih `#`
 - `DATA_GAMES` — `url` saat ini mengarah ke website resmi tiap game; ganti dengan link profilmu jika ingin
 - **Favicon** (ikon tab browser) belum dipasang

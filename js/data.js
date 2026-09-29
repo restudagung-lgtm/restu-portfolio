@@ -55,8 +55,8 @@ const DATA_GAMES = [
 ];
 
 const DATA_GAMEDEV = [
-  {name:"Zombie Survival", desc:"A small survival game dibuat sambil belajar Unity dan C#.", engine:"Unity", lang:"C#", status:"In Development", demo:"#", repo:"#", img:"images/project-zombie-survival.jpg"},
-  {name:"My First Unity Game", desc:"Proyek pertama untuk memahami dasar game loop dan physics 2D.", engine:"Unity", lang:"C#", status:"In Development", demo:"#", repo:"#", img:"images/project-first-unity-game.jpg"}
+  {name:"Sunset Island", desc:"Game hangout bertema pantai dengan suasana sunset, dibuat di Roblox Studio.", engine:"Roblox Studio", lang:"Lua", status:"In Development", demo:"https://www.roblox.com/share?code=c4337be36cd0784dae5f82ccfc40fa8f&type=ExperienceDetails&stamp=1790642311485", repo:"#", img:"images/project-sunset-island.jpg"},
+  {name:"Shiesty Club", desc:"Game musik dan dance, dibuat di Roblox Studio.", engine:"Roblox Studio", lang:"Lua", status:"In Development", demo:"https://www.roblox.com/share?code=cde8d164ce015846afb6c46dca752779&type=ExperienceDetails&stamp=1790642469092", repo:"#", img:"images/project-shiesty-club.jpg"}
 ];
 
 const DATA_ITPROJECTS = [
