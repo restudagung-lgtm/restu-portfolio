@@ -36,7 +36,7 @@ Website portofolio pribadi bertema *"From Gamer to Game Developer"*. Dibangun de
 
 ## Fitur
 
-- **Hero Section** — perkenalan singkat dengan latar malam yang beranimasi: bintang berkelip, awan tipis melayang, bulan dengan cahaya berdenyut, serta gunung dan karakter yang bergerak pelan
+- **Hero Section** — perkenalan singkat dengan foto latar bertema malam yang "hidup": efek Ken Burns (zoom & geser pelan otomatis) plus kunang-kunang melayang berkedip
 - **Background Parallax** — gambar mawar ungu sebagai latar seluruh halaman; ikut bergerak saat di-*scroll* (lebih pelan dari konten sehingga terasa ada kedalaman)
 - **Layout Full Desktop** — konten melebar memenuhi layar (hingga 1440px, dan 1680px di layar sangat lebar), bukan lagi kolom sempit di tengah
 - **About Me** — bio, statistik ringkas di bawah bio (di samping avatar), lalu kutipan di baris paling bawah
@@ -79,6 +79,7 @@ restu-portfolio/
 |---|---|
 | `avatar.jpg` | Foto profil di About Me |
 | `bg-roses.jpg` | Background seluruh halaman (parallax) |
+| `hero-bg.jpg` | Foto latar bergerak (Ken Burns) di Hero |
 | `game-minecraft.jpg`, `game-valorant.jpg`, `game-mobilelegends.jpg`, `game-genshin.jpg`, `game-gtav.jpg`, `game-roblox.jpg` | Cover di Gaming Journey |
 | `project-zombie-survival.jpg`, `project-first-unity-game.jpg` | Thumbnail Game Projects |
 | `pixel-scene.jpg` | Latar animasi mini game di kartu Journey |
@@ -138,6 +139,7 @@ Simpan gambar baru di folder `images/` lalu ubah nama file di field `img` pada `
 ### Pengaturan lain
 
 - **Kecepatan gerak background:** ubah angka `F = 0.28` di `js/parallax.js` (`0` = diam, makin besar makin cepat).
+- **Foto latar Hero:** kecepatan & jarak zoom Ken Burns diatur lewat `@keyframes heroKenBurns` di `css/style.css` (ubah `scale()` dan durasi `animation` pada `.hero-photo-img`).
 - **Mini game Journey:** kecepatan lari, tinggi lompatan, dan jumlah koin diatur di bagian atas `js/pixel-scene.js` (`SPEED`, `JUMP_H`) dan fungsi `spawnLevel()`.
 - **Gelap/terang background:** ubah nilai `rgba(11,8,18,…)` pada `.bg-parallax` di `css/style.css`.
 
