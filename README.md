@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Firebase-Optional-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase Optional">
+  <img src="https://img.shields.io/badge/Firebase-Active-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase Active">
   <img src="https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge" alt="Status">
 </p>
 
@@ -48,7 +48,7 @@ Website portofolio pribadi bertema *"From Gamer to Game Developer"*. Dibangun de
 - **Achievements** — daftar pencapaian
 - **Gallery** — grid foto; **klik foto untuk memperbesar** (lightbox), tutup dengan tombol X, klik area gelap, atau tombol `Esc`
 - **Devlog** — daftar catatan pengembangan
-- **Contact** — daftar kontak + formulir pesan (belum terhubung ke backend apa pun)
+- **Contact** — daftar kontak + formulir pesan yang tersimpan ke **Firebase Firestore** (lihat bagian Backend)
 - **Navigasi responsif** — menu atas untuk desktop, tab bar bawah + drawer "Menu" untuk mobile
 - **Ramah aksesibilitas** — animasi otomatis dimatikan bagi pengguna yang mengaktifkan *reduce motion* di perangkatnya
 
@@ -155,9 +155,42 @@ Simpan gambar baru di folder `images/` lalu ubah nama file di field `img` pada `
 
 ---
 
-## Backend (Opsional)
+## Backend (Firebase — sudah aktif)
 
-Form kontak saat ini bersifat statis (`onsubmit="return false"`) dan belum tersambung ke mana pun. File `js/backend.js` sudah berisi kerangka kode untuk menghubungkan ke **Firebase Firestore** jika suatu saat ingin form kontak benar-benar menyimpan pesan. Langkah aktivasinya sudah dijelaskan sebagai komentar di dalam file tersebut.
+Form contact sudah tersambung ke **Firebase Firestore**. Setiap pesan yang dikirim lewat form akan tersimpan di collection `messages` pada project Firebase `restu-portfolio`.
+
+- SDK dimuat lewat CDN di `index.html` (`firebase-app-compat.js`, `firebase-firestore-compat.js`, `firebase-analytics-compat.js`) — tidak perlu `npm install` atau build tool apa pun.
+- Logika kirim pesan (validasi, status "Mengirim...", pesan sukses/gagal) ada di `js/backend.js`.
+- **Analytics** otomatis nonaktif kalau `index.html` dibuka langsung sebagai file lokal (`file://`); baru aktif setelah situs diakses lewat live server / hosting (`http://` atau `https://`).
+
+### ⚠️ Wajib: atur Firestore Security Rules
+
+`apiKey` di `firebaseConfig` **aman** ditaruh di kode client (bukan password) — yang benar-benar menjaga data kamu adalah **Security Rules** di Firebase Console. Tanpa rules yang benar, siapa pun bisa membaca/menghapus semua pesan, atau projectmu masih memakai mode test yang otomatis terkunci total setelah 30 hari.
+
+Buka **Firebase Console → Firestore Database → Rules**, lalu pakai aturan berikut (izinkan orang lain hanya bisa *mengirim* pesan, tidak bisa membaca/menghapus):
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /messages/{id} {
+      allow create: if request.resource.data.name is string
+                    && request.resource.data.email is string
+                    && request.resource.data.message is string
+                    && request.resource.data.name.size() < 200
+                    && request.resource.data.email.size() < 200
+                    && request.resource.data.message.size() < 5000;
+      allow read, update, delete: if false;
+    }
+  }
+}
+```
+
+Kalau rules belum diatur, pengiriman pesan akan gagal dengan error **"Missing or insufficient permissions"** (muncul di bawah tombol *Send Message*, dan detailnya di console browser / `F12`).
+
+### Cara membaca pesan yang masuk
+
+Buka **Firebase Console → Firestore Database → Data**, lalu lihat isi collection `messages`. Kalau mau, kamu bisa membangun halaman admin terpisah untuk membacanya — di luar cakupan file `restu-portfolio` ini supaya pesan pengunjung tidak bisa dibaca publik lewat situs utama.
 
 ---
 
@@ -168,7 +201,7 @@ Form kontak saat ini bersifat statis (`onsubmit="return false"`) dan belum tersa
   <img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
   <img src="https://img.shields.io/badge/-Google%20Fonts-4285F4?style=flat-square&logo=googlefonts&logoColor=white" alt="Google Fonts">
-  <img src="https://img.shields.io/badge/-Firebase%20(opsional)-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firebase">
+  <img src="https://img.shields.io/badge/-Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firebase">
 </p>
 
 Font yang dipakai: **Space Grotesk**, **JetBrains Mono**, dan **Caveat** (dimuat via Google Fonts).

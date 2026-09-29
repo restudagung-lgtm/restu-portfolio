@@ -436,3 +436,9 @@ nav .bar > .brand{display:flex; height:auto; background:none}
 @media (prefers-reduced-motion: reduce){
   .hero-photo-img, .fireflies span{animation:none}
 }
+
+/* ===== Contact form: status kirim pesan (Firebase) ===== */
+.form-status{min-height:18px; margin:0; font-size:13px}
+.form-status.success{color:var(--green)}
+.form-status.error{color:#ff6b7a}
+.contact-form button[disabled]{opacity:.65; cursor:not-allowed}

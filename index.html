@@ -226,11 +226,12 @@
   <p class="sub">Feel free to reach out! I'm always open to new opportunities, collaborations, or just a friendly chat.</p>
   <div class="contact-wrap">
     <div class="contact-list" id="contactWrap"></div>
-    <form class="contact-form" onsubmit="return false">
-      <label>Name<input type="text" placeholder="Your name"></label>
-      <label>Email<input type="email" placeholder="your@email.com"></label>
-      <label>Message<textarea placeholder="Type your message..."></textarea></label>
-      <button class="btn btn-primary" type="submit">Send Message</button>
+    <form class="contact-form" id="contactForm">
+      <label>Name<input type="text" id="cfName" name="name" placeholder="Your name" required></label>
+      <label>Email<input type="email" id="cfEmail" name="email" placeholder="your@email.com" required></label>
+      <label>Message<textarea id="cfMessage" name="message" placeholder="Type your message..." required></textarea></label>
+      <button class="btn btn-primary" type="submit" id="cfSubmit">Send Message</button>
+      <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
   <div class="social-row" id="socialRow"></div>
@@ -263,6 +264,11 @@
     <figcaption id="lightboxCaption"></figcaption>
   </figure>
 </div>
+
+<!-- Firebase SDK (compat, lewat CDN — cocok untuk situs statis tanpa build tool) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
 
 <script src="js/data.js" defer></script>
 <script src="js/backend.js" defer></script>
