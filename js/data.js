@@ -95,12 +95,12 @@ const DATA_ACHIEVEMENTS = [
 ];
 
 const DATA_GALLERY = [
-  {img:"images/gallery-1.jpg", caption:"Game Screenshot"},
-  {img:"images/gallery-2.jpg", caption:"Coding Session"},
-  {img:"images/gallery-3.jpg", caption:"Character Setup"},
-  {img:"images/gallery-4.jpg", caption:"Game UI Design"},
-  {img:"images/gallery-5.jpg", caption:"Wireframe"},
-  {img:"images/gallery-6.jpg", caption:"Dev Setup"}
+  {img:"images/gallery-1.jpg", caption:"Play with friend"},
+  {img:"images/gallery-2.jpg", caption:"Comunity play together"},
+  {img:"images/gallery-3.jpg", caption:"Foto session"},
+  {img:"images/gallery-4.jpg", caption:"Play fun"},
+  {img:"images/gallery-5.jpg", caption:"chatting together"},
+  {img:"images/gallery-6.jpg", caption:"beautiful scenery"}
 ];
 
 const DATA_DEVLOG = [
@@ -111,7 +111,7 @@ const DATA_DEVLOG = [
 ];
 
 const DATA_CONTACT = [
-  {label:"Email", val:"example@gmail.com", url:"mailto:example@gmail.com", icon:"mail"},
-  {label:"GitHub", val:"@username", url:"#", icon:"github", img:"images/icon-github.jpg"},
-  {label:"Discord", val:"@username", url:"#", icon:"discord", img:"images/icon-discord.jpg"}
+  {label:"Email", val:"restudagung@gmail.com", url:"mailto:restudagung@gmail.com", icon:"mail"},
+  {label:"GitHub", val:"@restudagung-lgtm", url:"#", icon:"github", img:"images/icon-github.jpg"},
+  {label:"Discord", val:"@m__nd", url:"#", icon:"discord", img:"images/icon-discord.jpg"}
 ];
