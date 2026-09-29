@@ -18,7 +18,7 @@ Website portofolio pribadi bertema *"From Gamer to Game Developer"*. Dibangun de
 
 ![Hero](images/preview-hero.jpg)
 
-**About Me** — bio, statistik, dan avatar
+**About Me** — bio, statistik, dan minigame puzzle blok (menggantikan avatar statis)
 
 ![About](images/preview-about.jpg)
 
@@ -39,7 +39,7 @@ Website portofolio pribadi bertema *"From Gamer to Game Developer"*. Dibangun de
 - **Hero Section** — perkenalan singkat dengan foto latar bertema malam yang "hidup": efek Ken Burns (zoom & geser pelan otomatis) plus kunang-kunang melayang berkedip
 - **Background Parallax** — gambar mawar ungu sebagai latar seluruh halaman; ikut bergerak saat di-*scroll* (lebih pelan dari konten sehingga terasa ada kedalaman)
 - **Layout Full Desktop** — konten melebar memenuhi layar (hingga 1440px, dan 1680px di layar sangat lebar), bukan lagi kolom sempit di tengah
-- **About Me** — bio, statistik ringkas di bawah bio (di samping avatar), lalu kutipan di baris paling bawah
+- **About Me** — bio, statistik ringkas di bawah bio (di samping puzzle), lalu kutipan di baris paling bawah
 - **Gaming Journey** — kartu game dengan gambar cover dan badge *Favorite*; **klik kartu untuk membuka halaman game** di tab baru
 - **Game Projects** — daftar proyek game dengan thumbnail, status (*In Development* / *Completed*), tombol *Play Demo* dan *GitHub*
 - **IT / Programming Projects** — daftar proyek IT non-game; setiap kartu adalah tautan
@@ -77,7 +77,7 @@ restu-portfolio/
 
 | File | Dipakai di |
 |---|---|
-| `avatar.jpg` | Foto profil di About Me |
+| `avatar.jpg` | Gambar yang dipecah jadi 12 balok di minigame puzzle About Me (harus rasio 4:3) |
 | `bg-roses.jpg` | Background seluruh halaman (parallax) |
 | `hero-bg.jpg` | Foto latar bergerak (Ken Burns) di Hero |
 | `game-minecraft.jpg`, `game-valorant.jpg`, `game-mobilelegends.jpg`, `game-genshin.jpg`, `game-gtav.jpg`, `game-roblox.jpg` | Cover di Gaming Journey |
@@ -225,3 +225,10 @@ Belum ada file lisensi disertakan. Kalau proyek ini ingin dibagikan secara publi
 <p align="center">
   <sub>Dibuat oleh Restu — Play · Code · Create</sub>
 </p>
+
+## Minigame puzzle (About Me)
+
+- Logika: `js/puzzle.js`, gaya: bagian `.pz-*` di akhir `css/style.css`.
+- Foto dipecah 4 kolom x 3 baris = 12 balok. Seret balok ke kotak yang benar, atau tap balok lalu tap kotaknya.
+- Ganti gambar: ganti `images/avatar.jpg` (rasio 4:3), atau ubah `url(../images/avatar.jpg)` di `.pz-board::before` dan `.pz-piece`.
+- Ubah ukuran grid: sesuaikan `COLS`/`ROWS` di `js/puzzle.js`, `background-size` di `.pz-piece`, dan `grid-template-*` di `.pz-board`.

@@ -450,3 +450,55 @@ nav .bar > .brand{display:flex; height:auto; background:none}
 .form-status.success{color:var(--green)}
 .form-status.error{color:#ff6b7a}
 .contact-form button[disabled]{opacity:.65; cursor:not-allowed}
+
+/* ===== ABOUT: minigame puzzle blok (menggantikan foto avatar statis) ===== */
+.puzzle-card{aspect-ratio:auto; display:block; padding:14px; touch-action:pan-y; user-select:none; -webkit-user-select:none}
+.pz-head{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px}
+.pz-title{display:flex; align-items:center; gap:8px; font-weight:700; font-size:14px}
+.pz-title .icon{color:var(--primary2)}
+.pz-stat{font-size:12px; color:var(--muted)}
+.pz-progress{height:4px; border-radius:4px; background:rgba(255,255,255,.08); overflow:hidden; margin-bottom:12px}
+.pz-progress i{display:block; height:100%; width:var(--pz-progress,0%); background:linear-gradient(90deg,var(--primary2),var(--cyan)); transition:width .3s ease}
+
+.pz-board{position:relative; display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(3,1fr); aspect-ratio:4/3;
+  border-radius:var(--radius-sm); overflow:hidden; background:#0e0a1c; border:1px solid var(--line)}
+.pz-board::before{content:''; position:absolute; inset:0; background:url(../images/avatar.jpg) center/cover; opacity:.14; pointer-events:none; transition:opacity .5s}
+.pz-cell{position:relative; border:1px dashed rgba(124,107,255,.35); min-width:0; min-height:0}
+.pz-cell.filled{border:0}
+.pz-board.done{border-color:var(--green); box-shadow:0 0 0 1px var(--green), 0 0 26px rgba(56,217,138,.35); animation:pzPop .6s ease}
+.pz-board.done .pz-cell{border:0}
+.pz-board.done::before{opacity:0}
+
+.pz-piece{display:block; padding:0; border:0; cursor:grab; background-image:url(../images/avatar.jpg); background-size:400% 300%; background-repeat:no-repeat;
+  aspect-ratio:1; width:100%; border-radius:4px; touch-action:none;
+  box-shadow:inset 2px 2px 0 rgba(255,255,255,.3), inset -2px -2px 0 rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.45);
+  transition:transform .12s, box-shadow .12s}
+.pz-piece:not(.placed):hover{transform:translateY(-2px)}
+.pz-piece:focus-visible{outline:2px solid var(--cyan); outline-offset:2px}
+.pz-piece.selected{outline:2px solid var(--amber); outline-offset:1px; transform:translateY(-3px)}
+.pz-piece.dragging{z-index:1000; cursor:grabbing; pointer-events:none; transform:scale(1.06) rotate(-3deg); border-radius:6px;
+  box-shadow:inset 2px 2px 0 rgba(255,255,255,.35), inset -2px -2px 0 rgba(0,0,0,.4), 0 14px 26px rgba(0,0,0,.6)}
+.pz-piece.placed{position:absolute; inset:0; width:100%; height:100%; border-radius:0; cursor:default; animation:pzSnap .25s ease}
+.pz-board.done .pz-piece.placed{box-shadow:none; inset:-1px; width:calc(100% + 2px); height:calc(100% + 2px)} /* tutup celah subpiksel antar balok */
+.pz-piece.shake{animation:pzShake .3s}
+
+.pz-msg{min-height:20px; margin:10px 0 0; font-size:12.5px; text-align:center}
+.pz-tray{display:grid; grid-template-columns:repeat(6,1fr); gap:6px; margin-top:10px; align-content:start}
+.pz-slot{display:block; aspect-ratio:1}
+.pz-reset{margin-top:12px; width:100%; justify-content:center; padding:9px 14px; font-size:13px}
+.pz-fallback{width:100%; display:block; border-radius:var(--radius-sm)}
+.puzzle-card.is-done .pz-tray{display:none}
+.puzzle-card.is-done .pz-reset{background:var(--primary); border-color:var(--primary); color:#fff}
+.puzzle-card.is-done .pz-msg{color:var(--green)}
+
+.pz-confetti{position:absolute; top:40%; width:7px; height:7px; border-radius:1px; pointer-events:none; opacity:0; z-index:5; animation:pzConfetti 1.4s ease-out forwards}
+
+@keyframes pzShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes pzSnap{0%{transform:scale(1.12); filter:brightness(1.5)}100%{transform:scale(1); filter:none}}
+@keyframes pzPop{0%{transform:scale(1)}40%{transform:scale(1.03)}100%{transform:scale(1)}}
+@keyframes pzConfetti{0%{opacity:1; transform:translate(0,0) rotate(0)}100%{opacity:0; transform:translate(var(--dx),var(--dy)) rotate(260deg)}}
+
+@media (prefers-reduced-motion: reduce){
+  .pz-piece, .pz-progress i{transition:none}
+  .pz-piece.placed, .pz-piece.shake, .pz-board.done{animation:none}
+}
