@@ -73,6 +73,14 @@ const DATA_SKILLS = {
 };
 
 const DATA_JOURNEY = [
+  {d:"Aug 2025", t:"Pertama kali bikin game di Roblox Studio"},
+  {d:"Sep 2025", t:"Pertama kali ngoding di Roblox Studio"},
+  {d:"Oct 2025", t:"Join komunitas game dan dev game online"},
+  {d:"Nov 2025", t:"Pertama kali kolaborasi bikin game"},
+  {d:"Dec 2025", t:"Punya game sendiri"},
+  {d:"Jan 2026", t:"Mulai ada tawaran sponsor"},
+  {d:"Feb 2026", t:"Mulai belajar Blender dan 3D"},
+  {d:"Mar 2026", t:"Belajar dasar Unity dan buat game"},
   {d:"Sep 2026", t:"Membuat game 2D pertama"},
   {d:"Oct 2026", t:"Belajar JavaScript"},
   {d:"Nov 2026", t:"Belajar Git & GitHub"},

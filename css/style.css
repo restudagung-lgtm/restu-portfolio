@@ -303,7 +303,15 @@ footer{display:flex; align-items:center; justify-content:center; gap:6px; text-a
 /* ===== MOBILE BOTTOM TAB BAR ===== */
 .tabbar{display:none}
 @media (max-width:768px){
-  .desk-links{display:none}
+  /* nav lengkap ala desktop, tapi bisa di-scroll ke samping karena layarnya sempit */
+  nav .bar{flex-wrap:wrap; row-gap:10px}
+  .desk-links{
+    display:flex; order:3; width:100%; gap:20px;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    padding-top:10px; border-top:1px solid var(--line);
+  }
+  .desk-links::-webkit-scrollbar{display:none}
+  .desk-links a{flex:0 0 auto; white-space:nowrap}
   .tabbar{
     display:flex; position:fixed; left:0; right:0; bottom:0; z-index:30;
     background:rgba(15,19,36,.95); backdrop-filter:blur(8px); border-top:1px solid var(--line);
