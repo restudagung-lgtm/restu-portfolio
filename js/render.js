@@ -13,6 +13,8 @@ function icon(name) {
   return `<svg class="icon"><use href="#i-${name}"></use></svg>`;
 }
 
+// Dipanggil sekali saat load, dan lagi setiap konten diubah lewat mode admin (js/admin.js).
+function renderAll() {
 // --- Nav desktop ---
 document.getElementById('deskLinks').innerHTML = NAV_LINKS.map((l, i) =>
   `<a href="${l.href}"${i === 0 ? ' class="active"' : ''}>${l.label}</a>`
@@ -102,3 +104,5 @@ document.getElementById('contactWrap').innerHTML = DATA_CONTACT.map(c => `
     <span class="badge-ico">${c.img ? `<img src="${c.img}" alt="${c.label}">` : icon(c.icon)}</span>
     <div><h3 style="font-size:13.5px">${c.label}</h3><p style="font-size:12px">${c.val}</p></div>
   </a>`).join('');
+}
+renderAll();

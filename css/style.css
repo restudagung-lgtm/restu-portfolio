@@ -502,3 +502,10 @@ nav .bar > .brand{display:flex; height:auto; background:none}
   .pz-piece, .pz-progress i{transition:none}
   .pz-piece.placed, .pz-piece.shake, .pz-board.done{animation:none}
 }
+
+/* ===== Puzzle: versi animasi (balok terbang masuk lalu menyatu) ===== */
+.puzzle-card{padding:14px; display:block}
+.pz-board{overflow:visible}
+.pz-board::before{display:none}
+.pz-tile{position:absolute; inset:0; border-radius:3px; will-change:transform; transition:transform .7s cubic-bezier(.2,.9,.3,1.15), opacity .4s}
+.pz-board.done .pz-tile{inset:-1px; border-radius:0}

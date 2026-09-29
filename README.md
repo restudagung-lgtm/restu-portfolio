@@ -232,3 +232,21 @@ Belum ada file lisensi disertakan. Kalau proyek ini ingin dibagikan secara publi
 - Foto dipecah 4 kolom x 3 baris = 12 balok. Seret balok ke kotak yang benar, atau tap balok lalu tap kotaknya.
 - Ganti gambar: ganti `images/avatar.jpg` (rasio 4:3), atau ubah `url(../images/avatar.jpg)` di `.pz-board::before` dan `.pz-piece`.
 - Ubah ukuran grid: sesuaikan `COLS`/`ROWS` di `js/puzzle.js`, `background-size` di `.pz-piece`, dan `grid-template-*` di `.pz-board`.
+
+## Mode admin (edit konten tanpa ubah script)
+
+Buka panel: tambah `#admin` di URL, tekan `Ctrl+Shift+A`, atau tap logo 5x. Login pakai akun Firebase Auth, lalu edit teks, tema, gambar, dan semua daftar (game, proyek, skills, journey, galeri, kontak, dll). Perubahan tampil langsung sebagai pratinjau; klik **Simpan** untuk menerbitkan ke Firestore (`site/content`). **Ekspor/Impor** = backup JSON.
+
+Setup sekali di Firebase Console:
+1. Authentication → Sign-in method → aktifkan Email/Password, lalu Users → Add user (akun adminmu). Salin UID-nya.
+2. Firestore → Rules, tambahkan di dalam `match /databases/{database}/documents { ... }`:
+
+```
+match /site/{doc} {
+  allow read: if true;
+  allow write: if request.auth != null && request.auth.uid == 'UID_ADMINMU';
+}
+```
+3. Kalau situs di-hosting di domain sendiri, tambahkan domainnya di Authentication → Settings → Authorized domains.
+
+Catatan: default konten tetap ada di `js/data.js` (dipakai kalau Firestore kosong/offline). Gambar hasil upload disimpan di dokumen Firestore (batas total ±900 KB), jadi untuk banyak gambar lebih baik pakai path/URL.

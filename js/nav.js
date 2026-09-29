@@ -8,10 +8,10 @@ const drawerClose = document.getElementById('drawerClose');
 function openDrawer() { drawer.classList.add('open'); }
 function closeDrawer() { drawer.classList.remove('open'); }
 
-document.getElementById('moreBtn')?.addEventListener('click', openDrawer);
+document.addEventListener('click', (e) => { if (e.target.closest('#moreBtn')) openDrawer(); });
 drawerClose?.addEventListener('click', closeDrawer);
 drawer?.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
-document.getElementById('drawerLinks')?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+document.getElementById('drawerLinks')?.addEventListener('click', (e) => { if (e.target.closest('a')) closeDrawer(); });
 
 // highlight link yang sedang aktif (desktop nav + tab bar) sesuai section yang terlihat
 const sections = document.querySelectorAll('section[id]');

@@ -152,16 +152,7 @@
       <p>Saya adalah seorang gamer yang sedang belajar menjadi game developer dan mendalami dunia IT. Saya tertarik pada programming, game development, dan berbagai teknologi yang dapat digunakan untuk membuat sesuatu yang interaktif.</p>
     </div>
     <div class="avatar-card puzzle-card" id="puzzleGame">
-      <div class="pz-head">
-        <span class="pz-title"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"/></svg>Puzzle Blok</span>
-        <span class="pz-stat mono"><span id="pzCount">0/12</span> · <span id="pzTime">00:00</span></span>
-      </div>
-      <div class="pz-progress" aria-hidden="true"><i></i></div>
-      <div class="pz-board" id="pzBoard" role="group" aria-label="Papan puzzle 4 kali 3"></div>
-      <p class="pz-msg" id="pzMsg" aria-live="polite"></p>
-      <div class="pz-tray" id="pzTray" aria-label="Balok yang belum dipasang"></div>
-      <button type="button" class="btn btn-ghost pz-reset" id="pzReset">Acak ulang</button>
-      <noscript><img class="pz-fallback" src="images/avatar.jpg" alt="Foto profil Restu"></noscript>
+      <div class="pz-board" id="pzBoard" role="img" aria-label="Animasi foto Restu tersusun dari balok puzzle"></div>
     </div>
     <div class="stats" id="statsGrid"></div>
     <div class="quote-card">"Small steps every day, lead to big results."</div>
@@ -279,10 +270,12 @@
 <!-- Firebase SDK (compat, lewat CDN — cocok untuk situs statis tanpa build tool) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
 
 <script src="js/data.js" defer></script>
 <script src="js/backend.js" defer></script>
+<script src="js/admin.js" defer></script>
 <script src="js/render.js" defer></script>
 <script src="js/nav.js" defer></script>
 <script src="js/animations.js" defer></script>
